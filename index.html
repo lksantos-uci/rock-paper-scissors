@@ -3,8 +3,32 @@
         <meta charset="utf-08">
         <title>Rock Paper Scissors</title>
         <script src="scripts/script.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
-        <h1>Rock Paper Scissors</h1>
+        <header id="main-header">
+            <div class="rps-emojis">
+                <img id="rock" src="/images/rock.svg" height="120px" width="120px">     
+                <img id="paper" src="/images/paper.svg" height="120px" width="120px">     
+                <img id="scissors" src="/images/scissors.svg" height="120px" width="120px">     
+            </div>
+            <h1>Rock Paper Scissors</h1>
+        </header>
+        <section id="description">
+            <div class="text">
+                <h2>Press "Get Started" to play against the CPU.</h2>
+                <p>Just do it! Think you can beat the CPU? Put your skills to the test!</p>
+            </div>
+        </section>
+        <section id="main-section">
+            <a href="#" id="play-btn">
+                <i class="fa-solid fa-play"></i>
+                Get Started
+            </a>
+        </section>
     </body>
 </html>

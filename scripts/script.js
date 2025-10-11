@@ -6,17 +6,13 @@ const NUM_ROUNDS = 5;
 function getComputerChoice() {
     // Get the choice by using the Math.random
     let choice = Math.floor(Math.random() * 3);
-    // Return choice as a string
     switch (choice) {
         case 0:
             return "rock";
-            break;
         case 1:
             return "paper";
-            break;
         case 2:
             return "scissors";
-            break;
     }
 }
 
