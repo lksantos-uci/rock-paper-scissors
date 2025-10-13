@@ -2,6 +2,7 @@
     color: white;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -34,9 +35,10 @@ body {
 .rps-emojis {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
-#paper {
+#rock {
     margin-right: 180px;
     margin-left: 180px;
 }
@@ -64,9 +66,9 @@ body {
 #description {
     display: flex;
     justify-content: center;
-    width: 1100px;
+    width: 100%;
     margin: auto;
-    margin-bottom: 48px;
+    margin-bottom: 36px;
 }
 
 .text h2 {
@@ -81,4 +83,144 @@ body {
     text-align: center;
 }
 
+#score-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 32px;
+}
 
+#score-label {
+    border: 2px solid black;
+    padding: 8px 24px;
+    border-radius: 10px;
+    background-color: orange;
+    margin-bottom: 16px;
+}
+
+#score-container {
+    width: 80%;
+    background-color: orange;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+#score-container .scores {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 28px;
+    margin-bottom: 28px;
+}
+
+.scores .label {
+    font-size: 30px;
+    font-weight: 600;
+    border: 2px solid black;
+    padding: 8px 24px;
+    border-radius: 10px;
+    flex: 1;
+    margin-bottom: 16px;
+    background-color: sandybrown;
+}
+
+.score {
+    border: 2px solid black;
+    height: 150px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    border-radius: 10px;
+}
+
+#player-score, #cpu-score {
+    width: 150px;
+    text-align: center;
+}
+
+#round-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#score-container .round {
+    background-color: rgb(56, 56, 56);
+    border-radius: 8px;
+    text-align: center;
+    margin-left: 36px;
+    margin-right: 36px;
+    padding: 8px;
+    padding: 20px 10px;
+    margin-top: 44px;
+}
+
+p .round-num {
+    font-size: 28px;
+}
+
+#player-score .score {
+    background-color: #e85c5c;
+}
+
+#cpu-score .score {
+    background-color: #4385ef;
+}
+
+#score-label h3 {
+    font-size: 36px;
+}
+
+#rps-ui {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.player {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    font-size: 36px;
+}
+
+.container .label {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.rps-btns {
+    display: flex;
+}
+
+.rps-btns i {
+    background-color: rgb(56, 56, 56);
+    font-size: 100px;
+    height: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+}
+
+.fa-hand-back-fist:hover, .fa-hand:hover, .fa-scissors:hover {
+    background: rgb(80, 80, 80);
+}
+
+.fa-hand {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.rps-btns .fa-question {
+    background-color: grey;
+}
+
+#message-box {
+    font-size: 36px;
+    text-align: center;
+}

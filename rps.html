@@ -1,0 +1,75 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-08">
+        <title>Rock Paper Scissors</title>
+        <script src="scripts/script.js" defer></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <header id="main-header">
+            <h1>ROUND <span class="round-num">1</span></h1>
+        </header>
+        <section id="score-board">
+            <div id="score-label">
+                <h3>Scoreboard</h3>
+            </div>
+            <div id="score-container">
+                <div class="scores">
+                    <div id="player-score">
+                        <div class="label">
+                            <p>Player</p>
+                        </div>
+                        <div class="score">
+                            <p>0</p>
+                        </div>
+                    </div>
+                    <div id="round-container">
+                        <div class="round">
+                            <p>Round</p>
+                            <p><span class="round-num">1</span></p>
+                        </div>
+                    </div>
+                    <div id="cpu-score">                        
+                        <div class="label">
+                            <p>CPU</p>
+                        </div>
+                        <div class="score">
+                            <p>0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="rps-ui">
+            <div class="player">
+                <div class="container">
+                    <div class="label">
+                        <h3>Player</h3>
+                    </div>
+                    <div class="rps-btns">
+                        <i class="fa-solid fa-hand-back-fist"></i>
+                        <i class="fa-solid fa-hand"></i>
+                        <i class="fa-solid fa-scissors"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="player">
+                <div class="container">
+                    <div class="label">
+                        <h3>CPU</h3>
+                    </div>
+                    <div class="rps-btns">
+                        <i class="fa-solid fa-question"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="message-box">
+            <p>Pick your move.</p>
+        </section>
+    </body>
+</html>

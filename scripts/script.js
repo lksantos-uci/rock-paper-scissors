@@ -37,6 +37,7 @@ function getHumanChoice() {
 
 // This function plays a single round of the game through.
 function playRound(humanChoice, computerChoice) {
+
     // Case 1: Tie breaker
     if (humanChoice === computerChoice) {
         console.log(`It is a tie between ${humanChoice} and ${computerChoice}!`);
@@ -57,6 +58,12 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+// This function updates the screen of the game.
+function updateScreen() {
+    const header = document.querySelector("#main-header");
+    const emojis = document.querySelector(".rps-emojis");
+    header.removeChild(emojis);
+}
 
 // This function plays through all rounds of the game.
 function playGame() {
@@ -69,4 +76,5 @@ function playGame() {
 }
 
 // Start the game
-playGame();
+const playBtn = document.querySelector("#play-btn");
+playBtn.addEventListener("click", playGame);
