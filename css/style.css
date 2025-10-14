@@ -25,6 +25,11 @@ body {
     background-clip: text;
 }
 
+#rock-img {
+    margin-left: 125px;
+    margin-right: 125px;
+}
+
 .rps-emojis i {
     font-size: 64px;
     border: solid white 4px;
@@ -43,9 +48,10 @@ body {
     border: solid white 4px;
     border-radius: 8px;
     font-size: 36px;
-    font-weight: 500;
+    font-weight: 600;
     padding: 24px 32px;
     color: white;
+    background-color: orange;
 }
 
 #play-btn:hover {
@@ -134,8 +140,10 @@ body {
 #round-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+    height: 150px;
+    margin-top: 68px;
 }
 
 #reset-btn {

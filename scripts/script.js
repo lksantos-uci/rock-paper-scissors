@@ -1,7 +1,7 @@
 let humanScore = 0;
 let computerScore = 0;
 let round = 1;
-const NUM_ROUNDS = 5;
+let gameOver = false;
 
 
 function getComputerChoice() {
@@ -19,12 +19,14 @@ function getComputerChoice() {
 
 
 function playGame(event) {
-    let target = event.target;
-    let humanSelection = null;
-    let computerSelection = null;
-    humanSelection = target.id;
-    computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
+    if (!gameOver) {
+        let target = event.target;
+        let humanSelection = null;
+        let computerSelection = null;
+        humanSelection = target.id;
+        computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
 }
 
 
@@ -36,9 +38,10 @@ function reset(event) {
 
     humanScore = computerScore = 0;
     round = 1;
+    gameOver = false;
     humanLabel.textContent = computerLabel.textContent = 0;
-    roundLabels.forEach((label) => label.textContent = 0);
-    msg.textContent = "Pick your move";
+    roundLabels.forEach((label) => label.textContent = 1);
+    msg.textContent = "Pick your move.";
 }
 
 
@@ -77,11 +80,21 @@ function playRound(humanChoice, computerChoice) {
         computerLabel.textContent = computerScore;
     }
     
+    // Declare winner.
+    if ((humanScore === 5) ||
+        (computerScore === 5)) {
+        const winner = (humanScore === 5) ? "player" : "computer";
+        msg.textContent = `The winner is the ${winner}!`;
+        gameOver = true;
+    }
+
     // Update round and points
-    round += 1;
-    roundLabels.forEach((label) => {
-        label.textContent = round;
-    });
+    else {
+        round += 1;
+        roundLabels.forEach((label) => {
+            label.textContent = round;
+        });
+    }
 }
 
 
