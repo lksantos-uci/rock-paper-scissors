@@ -1,8 +1,9 @@
 let humanScore = 0;
 let computerScore = 0;
+let round = 0;
 const NUM_ROUNDS = 5;
 
-// This function decides between rock, paper, or scissors randomly.
+
 function getComputerChoice() {
     // Get the choice by using the Math.random
     let choice = Math.floor(Math.random() * 3);
@@ -17,64 +18,56 @@ function getComputerChoice() {
 }
 
 
-// This function checks if the player entered a valid choice.
-function isValid(choice) {
-    return choice === "rock" || choice === "paper" || choice === "scissors";
+function playGame(event) {
+    let target = event.target;
+    let humanSelection = null;
+    let computerSelection = null;
+    humanSelection = target.id;
+    computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
 }
 
 
-// This function allows the player to decide their move.
-function getHumanChoice() {
-    // Prompt user for their answer until a valid choice is entered.
-    let choice = prompt("Enter your move: ").toLowerCase();
-    while (!isValid(choice)) {
-        choice = prompt("Try again. Only \"rock\", \"paper\" or \"scissors\" is accepted: ").toLowerCase();
-    }
-    // Return their choice
-    return choice;
+function initGame() {
+    let btns = document.querySelector('.rps-btns');
+    btns.addEventListener('click', playGame);
 }
 
 
-// This function plays a single round of the game through.
 function playRound(humanChoice, computerChoice) {
+    const msg = document.querySelector("#message-box p");
+    const roundLabels = document.querySelectorAll(".round-num");
+    const humanLabel = document.querySelector("#player-score .score");
+    const computerLabel = document.querySelector("#cpu-score .score");
 
     // Case 1: Tie breaker
     if (humanChoice === computerChoice) {
-        console.log(`It is a tie between ${humanChoice} and ${computerChoice}!`);
+        msg.textContent = `It is a tie between ${humanChoice} and ${computerChoice}!`
     }
-
+    
     // Case 2: Player wins
     else if ((humanChoice === "rock" && computerChoice === "scissors") ||
-             (humanChoice === "paper" && computerChoice === "rock") ||
-             (humanChoice === "scissors" && computerChoice === "paper")) {
-        console.log(`Player wins! The player's ${humanChoice} has defeated the computer's ${computerChoice}.`);
+    (humanChoice === "paper" && computerChoice === "rock") ||
+    (humanChoice === "scissors" && computerChoice === "paper")) {
+        msg.textContent = `Player wins! The player's ${humanChoice} has defeated the computer's ${computerChoice}.`;
         humanScore += 1;
+        humanLabel.textContent = humanScore;
     }
-
+    
     // Case 3: The computer wins
     else {
-        console.log(`Player loses...The player's ${humanChoice} was no match for the computer's ${computerChoice}.`);
+        msg.textContent = `Player loses...The player's ${humanChoice} was no match for the computer's ${computerChoice}.`;
         computerScore += 1;
+        computerLabel.textContent = computerScore;
     }
+    
+    // Update round and points
+    round += 1;
+    roundLabels.forEach((label) => {
+        label.textContent = round;
+    });
 }
 
-// This function updates the screen of the game.
-function updateScreen() {
-    const header = document.querySelector("#main-header");
-    const emojis = document.querySelector(".rps-emojis");
-    header.removeChild(emojis);
-}
-
-// This function plays through all rounds of the game.
-function playGame() {
-    // Play for however many rounds defined.
-    for (let index = 0; index < NUM_ROUNDS; index++) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-    }
-}
 
 // Start the game
-const playBtn = document.querySelector("#play-btn");
-playBtn.addEventListener("click", playGame);
+initGame();
