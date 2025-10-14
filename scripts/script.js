@@ -1,6 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
-let round = 0;
+let round = 1;
 const NUM_ROUNDS = 5;
 
 
@@ -28,9 +28,25 @@ function playGame(event) {
 }
 
 
+function reset(event) {
+    const msg = document.querySelector("#message-box p");
+    const roundLabels = document.querySelectorAll(".round-num");
+    const humanLabel = document.querySelector("#player-score .score");
+    const computerLabel = document.querySelector("#cpu-score .score");
+
+    humanScore = computerScore = 0;
+    round = 1;
+    humanLabel.textContent = computerLabel.textContent = 0;
+    roundLabels.forEach((label) => label.textContent = 0);
+    msg.textContent = "Pick your move";
+}
+
+
 function initGame() {
-    let btns = document.querySelector('.rps-btns');
-    btns.addEventListener('click', playGame);
+    let options = document.querySelector('.rps-btns');
+    let resetBtn = document.querySelector('#reset-btn p')
+    options.addEventListener('click', playGame);
+    resetBtn.addEventListener('click', reset);
 }
 
 
